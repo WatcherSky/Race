@@ -9,19 +9,19 @@
     </dependencies>
     <scenes>
         <!--Start View Controller-->
-        <scene sceneID="HlT-Yi-7aK">
+        <scene sceneID="vkU-Gg-QfG">
             <objects>
-                <viewController storyboardIdentifier="StartViewController" id="wxO-g3-zbW" customClass="StartViewController" customModule="Race" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gW9-mZ-809">
+                <viewController storyboardIdentifier="StartViewController" id="vdU-s8-6XL" customClass="StartViewController" customModule="Race" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IZw-oj-bov">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6sq-QB-UO5"/>
+                        <viewLayoutGuide key="safeArea" id="kGn-MT-ymU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tdF-6M-bcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JM5-Tb-upM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-338" y="686"/>
+            <point key="canvasLocation" x="-91" y="25"/>
         </scene>
     </scenes>
     <resources>
