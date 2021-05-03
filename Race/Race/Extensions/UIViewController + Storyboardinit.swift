@@ -1,4 +1,3 @@
-//  UIViewController + Storyboardinit.swift
 //  Race
 //
 //  Created by Владимир on 26.04.2021.
