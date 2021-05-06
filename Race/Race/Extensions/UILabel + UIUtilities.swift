@@ -6,12 +6,12 @@
 import Foundation
 import UIKit
 
-extension UILabel {
+extension UIView {
     func applyCornerRadius(_ radius: CGFloat) {
         clipsToBounds = true
         layer.cornerRadius = radius
     }
-    func makeShadow (opacity: Float, offSet: CGSize, radius: CGFloat) {
+    func makeShadow(opacity: Float, offSet: CGSize, radius: CGFloat) {
         layer.shadowOpacity = opacity
         layer.shadowOffset = offSet
         layer.shadowRadius = radius
