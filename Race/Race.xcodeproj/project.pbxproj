@@ -90,12 +90,12 @@
 			children = (
 				E722B0D82621D24100452972 /* AppDelegate.swift */,
 				E722B0DA2621D24100452972 /* SceneDelegate.swift */,
-				E71A5D86263EE181009A91E9 /* Resources */,
 				E71A5D802639C8A1009A91E9 /* Extensions */,
 				E722B0DC2621D24100452972 /* ViewController.swift */,
 				E722B0ED2621D27400452972 /* StartViewController.swift */,
 				E7E2D9882636D785008DB808 /* StartViewController.storyboard */,
 				E722B0DE2621D24100452972 /* Main.storyboard */,
+				E71A5D86263EE181009A91E9 /* Resources */,
 				E722B0E32621D24400452972 /* LaunchScreen.storyboard */,
 			);
 			path = Race;
