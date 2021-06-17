@@ -10,6 +10,7 @@ class StartViewController: UIViewController {
     private var intersectionIndicator = false
     private var heightToDisappearForSpace: CGFloat = 900
     private var heightToDisappearForStone: CGFloat = 780
+
     @IBOutlet weak var ourSpaceshipOutlet: UIButton!
     @IBOutlet weak var upSpaceImage: UIImageView!
     @IBOutlet weak var thirdSpaceImage: UIImageView!
@@ -22,12 +23,10 @@ class StartViewController: UIViewController {
 
     override func viewDidLoad() {
     super.viewDidLoad()
-
     let timerSpace = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(spaceAnimation), userInfo: nil, repeats: true)
 
     let timerStones = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(stonesAnimation), userInfo: nil, repeats: true)
 }
-
     @IBAction private func leftMoveSwipe(_ sender: UISwipeGestureRecognizer) {
         if spaceshipOutlet.frame.origin.x == 300 {
             spaceshipOutlet.frame.origin.x = 150
@@ -46,54 +45,40 @@ class StartViewController: UIViewController {
             spaceshipOutlet.frame.origin.x = 300
         }
     }
-
     @objc private func spaceAnimation() {
-    upSpaceImage.frame = CGRect(x: upSpaceImage.frame.origin.x, y: upSpaceImage.frame.origin.y + 1, width: upSpaceImage.frame.size.width, height: upSpaceImage.frame.size.height)
-        if upSpaceImage.frame.origin.y == heightToDisappearForSpace {
-            upSpaceImage.frame.origin.y = 0
-        }
-    spaceImage.frame = CGRect(x: spaceImage.frame.origin.x, y: spaceImage.frame.origin.y + 1, width: spaceImage.frame.size.width, height: spaceImage.frame.size.height)
-        if spaceImage.frame.origin.y == heightToDisappearForSpace {
-            spaceImage.frame.origin.y = 0
-        }
-
-    secondSpaceImage.frame = CGRect(x: secondSpaceImage.frame.origin.x, y: secondSpaceImage.frame.origin.y + 1, width: secondSpaceImage.frame.size.width, height: secondSpaceImage.frame.size.height)
-        if secondSpaceImage.frame.origin.y == heightToDisappearForSpace {
-            secondSpaceImage.frame.origin.y = 0
-}
-
-    thirdSpaceImage.frame = CGRect(x: thirdSpaceImage.frame.origin.x, y: thirdSpaceImage.frame.origin.y + 1, width: thirdSpaceImage.frame.size.width, height: thirdSpaceImage.frame.size.height)
-        if thirdSpaceImage.frame.origin.y == heightToDisappearForSpace {
-            thirdSpaceImage.frame.origin.y = 0
-        }
-        }
+    movingSpace(space: upSpaceImage)
+    movingSpace(space: spaceImage)
+    movingSpace(space: secondSpaceImage)
+    movingSpace(space: thirdSpaceImage)
+    }
     @objc private func stonesAnimation() {
-        leftSpaceStone.frame = CGRect(x: leftSpaceStone.frame.origin.x, y: leftSpaceStone.frame.origin.y + 1, width: leftSpaceStone.frame.size.width, height: leftSpaceStone.frame.size.height)
-        if leftSpaceStone.frame.origin.y == heightToDisappearForStone {
-            leftSpaceStone.frame.origin.y = 0
-        }
-        intersectionIndicator = leftSpaceStone.frame.intersects(ourSpaceshipOutlet.frame)
-    if intersectionIndicator {
-        let viewController = ViewController.instantiateMainVC()
-        present(viewController, animated: true, completion: nil)
-        }
-    midSpaceStone.frame = CGRect(x: midSpaceStone.frame.origin.x, y: midSpaceStone.frame.origin.y + 1, width: midSpaceStone.frame.size.width, height: midSpaceStone.frame.size.height)
-    if midSpaceStone.frame.origin.y == heightToDisappearForStone {
-        midSpaceStone.frame.origin.y = 0
+    movingStones(stone: leftSpaceStone)
+    endgame()
+    movingStones(stone: midSpaceStone)
+    endgame()
+    movingStones(stone: rightSpaceStone)
+    endgame()
+    movingStones(stone: imgView)
+    endgame()
     }
-        intersectionIndicator = midSpaceStone.frame.intersects(ourSpaceshipOutlet.frame)
+
+    func movingSpace(space: UIImageView) {
+        space.frame = CGRect(x: space.frame.origin.x, y: space.frame.origin.y + 1, width: space.frame.size.width, height: space.frame.size.height)
+            if space.frame.origin.y == heightToDisappearForSpace {
+                space.frame.origin.y = 0
+            }
+    }
+    func movingStones(stone: UIImageView) {
+        stone.frame = CGRect(x: stone.frame.origin.x, y: stone.frame.origin.y + 1, width: stone.frame.size.width, height: stone.frame.size.height)
+        if stone.frame.origin.y == heightToDisappearForStone {
+            stone.frame.origin.y = 0
+        }
+            intersectionIndicator = stone.frame.intersects(ourSpaceshipOutlet.frame)
+        }
+    func endgame() {
         if intersectionIndicator {
             let viewController = ViewController.instantiateMainVC()
             present(viewController, animated: true, completion: nil)
-            }
-        rightSpaceStone.frame = CGRect(x: rightSpaceStone.frame.origin.x, y: rightSpaceStone.frame.origin.y + 1, width: rightSpaceStone.frame.size.width, height: rightSpaceStone.frame.size.height)
-    if rightSpaceStone.frame.origin.y == heightToDisappearForStone {
-        rightSpaceStone.frame.origin.y = 0
     }
-        intersectionIndicator = rightSpaceStone.frame.intersects(ourSpaceshipOutlet.frame)
-        if intersectionIndicator {
-            let viewController = ViewController.instantiateMainVC()
-            present(viewController, animated: true, completion: nil)
-            }
     }
 }
