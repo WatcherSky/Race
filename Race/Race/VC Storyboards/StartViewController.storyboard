@@ -21,26 +21,31 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_space" translatesAutoresizingMaskIntoConstraints="NO" id="I1r-QQ-YVB">
-                                        <rect key="frame" x="0.0" y="225" width="414" height="225"/>
+                                        <rect key="frame" x="0.0" y="180" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_space" translatesAutoresizingMaskIntoConstraints="NO" id="Swc-bO-4LR">
-                                        <rect key="frame" x="0.0" y="450" width="414" height="225"/>
+                                        <rect key="frame" x="0.0" y="360" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_space" translatesAutoresizingMaskIntoConstraints="NO" id="5cX-3F-SXs">
-                                        <rect key="frame" x="0.0" y="675" width="414" height="225"/>
+                                        <rect key="frame" x="0.0" y="540" width="414" height="180"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_space" translatesAutoresizingMaskIntoConstraints="NO" id="QYl-1a-mYj" userLabel="Fourth Space Image">
+                                        <rect key="frame" x="0.0" y="720" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_space" translatesAutoresizingMaskIntoConstraints="NO" id="Ces-JE-VKu">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="225"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_space_stone" translatesAutoresizingMaskIntoConstraints="NO" id="buW-pC-G9U" userLabel="leftSpaceStone">
-                                        <rect key="frame" x="0.0" y="225" width="105" height="128"/>
+                                        <rect key="frame" x="8" y="232" width="105" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_space_stone" translatesAutoresizingMaskIntoConstraints="NO" id="lD9-0Q-LAz" userLabel="midSpaceStone">
@@ -48,12 +53,12 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_space_stone" translatesAutoresizingMaskIntoConstraints="NO" id="Ctk-uJ-UEn" userLabel="rightSpaceStone">
-                                        <rect key="frame" x="300" y="225" width="105" height="128"/>
+                                        <rect key="frame" x="8" y="384" width="105" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfx-nB-uwz">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="225"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfx-nB-uwz">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -65,7 +70,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
-                                        <state key="normal" image="spaceship"/>
+                                        <state key="normal" image="ic_redSpaceship"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -80,10 +85,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="fourthSpaceImage" destination="QYl-1a-mYj" id="t9l-KK-zQI"/>
                         <outlet property="leftSpaceStone" destination="buW-pC-G9U" id="zfk-8e-2kR"/>
                         <outlet property="midSpaceStone" destination="lD9-0Q-LAz" id="XJJ-Sr-nhD"/>
-                        <outlet property="ourSpaceshipOutlet" destination="Vwm-vf-qxt" id="Ir5-FI-jL1"/>
                         <outlet property="rightSpaceStone" destination="Ctk-uJ-UEn" id="oug-qM-nlp"/>
+                        <outlet property="scoreOutlet" destination="tfx-nB-uwz" id="dYW-0l-xDM"/>
                         <outlet property="secondSpaceImage" destination="Swc-bO-4LR" id="mBs-mU-LNa"/>
                         <outlet property="spaceImage" destination="I1r-QQ-YVB" id="mph-Ca-uY8"/>
                         <outlet property="spaceshipOutlet" destination="Vwm-vf-qxt" id="WmC-HU-7YS"/>
@@ -107,9 +113,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_redSpaceship" width="130" height="132"/>
         <image name="ic_space" width="414" height="896"/>
         <image name="ic_space_stone" width="88" height="88"/>
-        <image name="spaceship" width="130" height="132"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

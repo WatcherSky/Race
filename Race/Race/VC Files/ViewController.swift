@@ -1,4 +1,3 @@
-//
 //  ViewController.swift
 //  Race
 //
@@ -11,9 +10,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
     @IBAction private func startButton(_ sender: UIButton) {
         let viewController = StartViewController.instantiate()
+        present(viewController, animated: true, completion: nil)
+    }
+    @IBAction private func settingsButton(_ sender: UIButton) {
+        let viewController = Settings.instantiate()
         present(viewController, animated: true, completion: nil)
     }
 }
