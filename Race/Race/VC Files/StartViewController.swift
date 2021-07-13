@@ -123,7 +123,7 @@ class StartViewController: UIViewController {
             let dataPath = folderPath.appendingPathComponent("\(dateToString).json")
             FileManager.default.createFile(atPath: dataPath.path, contents: data, attributes: nil)
         }
-}
+    }
     @objc func endTap(sender: UITapGestureRecognizer) {
         let viewController = ViewController.instantiateMainVC()
         present(viewController, animated: true, completion: nil)

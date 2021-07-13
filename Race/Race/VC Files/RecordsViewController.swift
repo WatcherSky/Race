@@ -8,12 +8,12 @@
 import UIKit
 
 class RecordsViewController: UIViewController {
-    var arrayOfResult = [String]()
-    var newArrayOfResult = [String]()
-    var scores: [Score] = []
-    var sortedScore: [Score] = []
-    var deleteValueStore = 0
-    var deleteValueJSON = 0
+    private var arrayOfResult = [String]()
+    private var newArrayOfResult = [String]()
+    private var scores: [Score] = []
+    private var sortedScore: [Score] = []
+    private var deleteValueStore = 0
+    private var deleteValueJSON = 0
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -65,9 +65,9 @@ class RecordsViewController: UIViewController {
         present(viewController, animated: true, completion: nil)
     }
     func sortedArray(array: [Score]) -> [Score] {
-    let sortedArrayScore = array.sorted { (s1: Score, s2: Score) -> Bool in
-        return s1.score > s2.score
-    }
+        let sortedArrayScore = array.sorted { (s1: Score, s2: Score) -> Bool in
+            return s1.score > s2.score
+        }
         while sortedScore.count > 20 {
             sortedScore.removeLast()
         }
