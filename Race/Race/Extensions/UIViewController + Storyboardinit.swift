@@ -12,9 +12,9 @@ extension UIViewController {
     let storyboard = UIStoryboard(name: name, bundle: Bundle.main)
     guard let viewController = storyboard.instantiateViewController(identifier: name) as? Self else {
     fatalError("cant init View Controller")
-}
+        }
     return viewController
-}
+    }
 }
 
 extension UIViewController {
@@ -23,7 +23,7 @@ extension UIViewController {
     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
     guard let viewController = storyboard.instantiateViewController(identifier: name) as? Self else {
     fatalError("cant init View Controller")
-}
+        }
     return viewController
-}
+    }
 }

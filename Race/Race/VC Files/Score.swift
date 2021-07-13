@@ -7,12 +7,7 @@
 
 import Foundation
 
-class Score: Codable {
+struct Score: Codable {
     var date = ""
     var score = 0
-
-    init(date: String, score: Int) {
-        self.date = date
-        self.score = score
-    }
 }

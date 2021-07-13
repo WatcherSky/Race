@@ -16,9 +16,11 @@
 		E722B0E22621D24400452972 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E722B0E12621D24400452972 /* Assets.xcassets */; };
 		E722B0E52621D24400452972 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E722B0E32621D24400452972 /* LaunchScreen.storyboard */; };
 		E722B0EE2621D27400452972 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E722B0ED2621D27400452972 /* StartViewController.swift */; };
+		E74AFFC9269DECE8005E5345 /* RecordsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E74AFFC8269DECE8005E5345 /* RecordsViewController.storyboard */; };
 		E782C946267C67D70003D96F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782C945267C67D70003D96F /* Settings.swift */; };
 		E782C949267C67E70003D96F /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E782C948267C67E70003D96F /* Settings.storyboard */; };
 		E78B863F2637029100FB6B55 /* UILabel + UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B863E2637029100FB6B55 /* UILabel + UIUtilities.swift */; };
+		E7C4560626970A130000D762 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C4560526970A130000D762 /* RecordsViewController.swift */; };
 		E7E2D9802636C39B008DB808 /* UIColor + hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E2D97F2636C39B008DB808 /* UIColor + hex.swift */; };
 		E7E2D9832636C971008DB808 /* UIViewController + Storyboardinit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E2D9822636C971008DB808 /* UIViewController + Storyboardinit.swift */; };
 		E7E2D9892636D785008DB808 /* StartViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E2D9882636D785008DB808 /* StartViewController.storyboard */; };
@@ -36,9 +38,11 @@
 		E722B0E42621D24400452972 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E722B0E62621D24400452972 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E722B0ED2621D27400452972 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		E74AFFC8269DECE8005E5345 /* RecordsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecordsViewController.storyboard; sourceTree = "<group>"; };
 		E782C945267C67D70003D96F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		E782C948267C67E70003D96F /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		E78B863E2637029100FB6B55 /* UILabel + UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + UIUtilities.swift"; sourceTree = "<group>"; };
+		E7C4560526970A130000D762 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		E7E2D97F2636C39B008DB808 /* UIColor + hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + hex.swift"; sourceTree = "<group>"; };
 		E7E2D9822636C971008DB808 /* UIViewController + Storyboardinit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboardinit.swift"; sourceTree = "<group>"; };
 		E7E2D9882636D785008DB808 /* StartViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartViewController.storyboard; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				E722B0DE2621D24100452972 /* Main.storyboard */,
+				E74AFFC8269DECE8005E5345 /* RecordsViewController.storyboard */,
 				E7E2D9882636D785008DB808 /* StartViewController.storyboard */,
 				E782C948267C67E70003D96F /* Settings.storyboard */,
 			);
@@ -130,6 +135,7 @@
 				E722B0ED2621D27400452972 /* StartViewController.swift */,
 				E782C945267C67D70003D96F /* Settings.swift */,
 				E70FCE14267DCA2900568BF9 /* Score.swift */,
+				E7C4560526970A130000D762 /* RecordsViewController.swift */,
 			);
 			path = "VC Files";
 			sourceTree = "<group>";
@@ -194,6 +200,7 @@
 			files = (
 				E722B0E52621D24400452972 /* LaunchScreen.storyboard in Resources */,
 				E71A5D8B263EE291009A91E9 /* waltographUI.ttf in Resources */,
+				E74AFFC9269DECE8005E5345 /* RecordsViewController.storyboard in Resources */,
 				E722B0E22621D24400452972 /* Assets.xcassets in Resources */,
 				E782C949267C67E70003D96F /* Settings.storyboard in Resources */,
 				E7E2D9892636D785008DB808 /* StartViewController.storyboard in Resources */,
@@ -238,6 +245,7 @@
 				E78B863F2637029100FB6B55 /* UILabel + UIUtilities.swift in Sources */,
 				E70FCE15267DCA2900568BF9 /* Score.swift in Sources */,
 				E7E2D9802636C39B008DB808 /* UIColor + hex.swift in Sources */,
+				E7C4560626970A130000D762 /* RecordsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

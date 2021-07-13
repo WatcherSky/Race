@@ -4,6 +4,7 @@
 //  Created by Владимир on 10.04.2021.
 //
 
+import GameplayKit
 import UIKit
 
 class StartViewController: UIViewController {
@@ -36,7 +37,7 @@ class StartViewController: UIViewController {
     @IBOutlet weak var fourthSpaceImage: UIImageView!
 
     override func viewDidLoad() {
-    super.viewDidLoad()
+        super.viewDidLoad()
         dateFormatter.dateFormat = "MMM d, HH:mm, ss"
         dateToString = dateFormatter.string(from: date)
         endGameTap.addTarget(self, action: #selector(endTap))
@@ -47,7 +48,7 @@ class StartViewController: UIViewController {
 
         timerSpace = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(spaceAnimation), userInfo: nil, repeats: true)
         timerStones = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(stonesAnimation), userInfo: nil, repeats: true)
-}
+    }
     @IBAction private func leftMoveSwipe(_ sender: UISwipeGestureRecognizer) {
         if spaceshipOutlet.frame.origin.x == 300 {
             spaceshipOutlet.frame.origin.x = 150
@@ -56,7 +57,7 @@ class StartViewController: UIViewController {
         } else {
             spaceshipOutlet.frame.origin.x = 10
         }
-}
+    }
     @IBAction private func rightMoveSwipe(_ sender: UISwipeGestureRecognizer) {
         if spaceshipOutlet.frame.origin.x == 10 {
             spaceshipOutlet.frame.origin.x = 150
@@ -65,34 +66,37 @@ class StartViewController: UIViewController {
         } else {
             spaceshipOutlet.frame.origin.x = 300
         }
-}
+    }
     @objc private func spaceAnimation() {
-    movingSpace(space: upSpaceImage)
-    movingSpace(space: spaceImage)
-    movingSpace(space: secondSpaceImage)
-    movingSpace(space: thirdSpaceImage)
-    movingSpace(space: fourthSpaceImage)
-}
+        movingSpace(space: upSpaceImage)
+        movingSpace(space: spaceImage)
+        movingSpace(space: secondSpaceImage)
+        movingSpace(space: thirdSpaceImage)
+        movingSpace(space: fourthSpaceImage)
+    }
     @objc private func stonesAnimation() {
-    movingStones(stone: leftSpaceStone)
-    endgame()
-    movingStones(stone: midSpaceStone)
-    endgame()
-    movingStones(stone: rightSpaceStone)
-    endgame()
-}
+        movingStones(stone: leftSpaceStone)
+        endgame()
+        movingStones(stone: midSpaceStone)
+        endgame()
+        movingStones(stone: rightSpaceStone)
+        endgame()
+    }
 
-    func chooseSpaceship() -> UIImage {
+    func chooseSpaceship() -> UIImage? {
         let chosenImage = spaceshipColor[spaceshipIndex]
-        let setImage = UIImage(named: chosenImage)
-        return setImage!
-}
+        if let setImage = UIImage(named: chosenImage) {
+            return setImage
+        } else {
+            return nil
+        }
+    }
     func movingSpace(space: UIImageView) {
         space.frame = CGRect(x: space.frame.origin.x, y: space.frame.origin.y + 1, width: space.frame.size.width, height: space.frame.size.height)
-            if space.frame.origin.y == heightToDisappearForSpace {
-                space.frame.origin.y = 0
-            }
-}
+        if space.frame.origin.y == heightToDisappearForSpace {
+            space.frame.origin.y = 0
+        }
+    }
     func movingStones(stone: UIImageView) {
         stone.frame = CGRect(x: stone.frame.origin.x, y: stone.frame.origin.y + 1, width: stone.frame.size.width, height: stone.frame.size.height)
         if stone.frame.origin.y == heightToDisappearForStone {
@@ -100,28 +104,28 @@ class StartViewController: UIViewController {
             score += 1
         }
         intersectionIndicator = stone.frame.intersects(spaceshipOutlet.frame)
-}
+    }
     func endgame() {
         if intersectionIndicator {
             endGameTap.isEnabled = true
             timerSpace.invalidate()
             timerStones.invalidate()
-            let documentDirectoryPath = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            guard let documentDirectoryPath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
+                return
+            }
             var folderPath = documentDirectoryPath
             folderPath.appendPathComponent("Score")
+            print(folderPath)
             let path = folderPath
             try? FileManager.default.createDirectory(at: path, withIntermediateDirectories: false, attributes: nil)
             let result = Score(date: dateToString, score: score)
             let data = try? JSONEncoder().encode(result)
             let dataPath = folderPath.appendingPathComponent("\(dateToString).json")
             FileManager.default.createFile(atPath: dataPath.path, contents: data, attributes: nil)
-            print(result.date)
-            print(result.score)
         }
 }
-
     @objc func endTap(sender: UITapGestureRecognizer) {
         let viewController = ViewController.instantiateMainVC()
         present(viewController, animated: true, completion: nil)
-}
+    }
 }
