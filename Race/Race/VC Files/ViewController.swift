@@ -18,9 +18,4 @@ class ViewController: UIViewController {
         let viewController = Settings.instantiate()
         present(viewController, animated: true, completion: nil)
     }
-
-    @IBAction private func recordsButton(_ sender: UIButton) {
-        let viewController = RecordsViewController.instantiate()
-        present(viewController, animated: true, completion: nil)
-    }
 }
