@@ -70,6 +70,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="cPM-EN-qQq" id="148-oa-Mql"/>
                         <outletCollection property="settingsSpaceships" destination="tNO-0l-TZs" collectionClass="NSMutableArray" id="s4r-Cq-TUz"/>
                         <outletCollection property="settingsSpaceships" destination="fkn-JX-Tv4" collectionClass="NSMutableArray" id="8K6-CH-oic"/>
                         <outletCollection property="settingsSpaceships" destination="wDf-3N-jW3" collectionClass="NSMutableArray" id="YHe-AN-W7E"/>

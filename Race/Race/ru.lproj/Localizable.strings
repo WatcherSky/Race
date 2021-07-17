@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Race
+
+  Created by Владимир on 18.07.2021.
+  
+*/
+
+
+"back" = "Назад";
+"score" = "Счет:";
+"scoreStart" = "Счет: 0";

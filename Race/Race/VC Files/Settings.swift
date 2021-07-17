@@ -10,9 +10,11 @@ import UIKit
 
 class Settings: UIViewController {
     @IBOutlet var settingsSpaceships: [UIButton]!
+    @IBOutlet weak var backButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        backButton.setTitle(NSLocalizedString("back", comment: ""), for: UIControl.State.normal)
 }
     @IBAction private func chooseSpaceship(_ sender: UIButton) {
         if let spaceshipNumber = settingsSpaceships.lastIndex(of: sender) {

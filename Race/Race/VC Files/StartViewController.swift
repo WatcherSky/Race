@@ -17,6 +17,7 @@ class StartViewController: UIViewController {
     private var score = 0 {
         didSet {
             scoreOutlet.text = "Score: \(score)"
+            scoreOutlet.text = " \(NSLocalizedString("score", comment: "")) \(score) "
         }
     }
     var timerSpace = Timer()
@@ -38,6 +39,8 @@ class StartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        scoreOutlet.text = NSLocalizedString("scoreStart", comment: "")
+
         dateFormatter.dateFormat = "MMM d, HH:mm, ss"
         dateToString = dateFormatter.string(from: date)
         endGameTap.addTarget(self, action: #selector(endTap))

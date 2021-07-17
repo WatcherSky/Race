@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  Race
+
+  Created by Владимир on 18.07.2021.
+  
+*/
+"score" = "Score:";
+"scoreStart" = "Score: 0";
