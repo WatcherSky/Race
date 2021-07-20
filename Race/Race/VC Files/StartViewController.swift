@@ -51,6 +51,7 @@ class StartViewController: UIViewController {
 
         timerSpace = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(spaceAnimation), userInfo: nil, repeats: true)
         timerStones = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(stonesAnimation), userInfo: nil, repeats: true)
+
     }
     @IBAction private func leftMoveSwipe(_ sender: UISwipeGestureRecognizer) {
         if spaceshipOutlet.frame.origin.x == 300 {
@@ -130,5 +131,12 @@ class StartViewController: UIViewController {
     @objc func endTap(sender: UITapGestureRecognizer) {
         let viewController = ViewController.instantiateMainVC()
         present(viewController, animated: true, completion: nil)
+    }
+    
+   func decreaseNumber() -> TimeInterval {
+        var number: TimeInterval = 0.01
+        number -= 0.001
+        print(number)
+        return number
     }
 }
