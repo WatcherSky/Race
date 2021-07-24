@@ -21,42 +21,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNO-0l-TZs">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNO-0l-TZs">
                                 <rect key="frame" x="40" y="121" width="130" height="132"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="ic_redSpaceship"/>
                                 <connections>
                                     <action selector="chooseSpaceship:" destination="rNo-2K-M3t" eventType="touchUpInside" id="bNm-ar-Xkv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkn-JX-Tv4">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkn-JX-Tv4">
                                 <rect key="frame" x="258" y="121" width="130" height="132"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="G9S-1Y-nJN"/>
+                                </constraints>
                                 <state key="normal" image="ic_blueSpaceship"/>
                                 <connections>
                                     <action selector="chooseSpaceship:" destination="rNo-2K-M3t" eventType="touchUpInside" id="0cU-Ci-Bxj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDf-3N-jW3">
-                                <rect key="frame" x="40" y="343" width="130" height="132"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="ic_blackSpaceship"/>
-                                <connections>
-                                    <action selector="chooseSpaceship:" destination="rNo-2K-M3t" eventType="touchUpInside" id="JeI-2G-5ut"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmJ-pX-sGD">
-                                <rect key="frame" x="258" y="343" width="130" height="132"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="ic_purpleSpaceship"/>
-                                <connections>
-                                    <action selector="chooseSpaceship:" destination="rNo-2K-M3t" eventType="touchUpInside" id="gr1-bA-71V"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPM-EN-qQq">
-                                <rect key="frame" x="127" y="736" width="103" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPM-EN-qQq">
+                                <rect key="frame" x="155.5" y="730" width="103" height="31"/>
                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="103" id="CSX-9N-vZC"/>
+                                    <constraint firstAttribute="height" constant="31" id="d2Q-Oa-nHw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="WaltographUI-Bold" family="Waltograph UI" pointSize="17"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" systemColor="labelColor"/>
@@ -65,9 +53,40 @@
                                     <action selector="backButton:" destination="rNo-2K-M3t" eventType="touchUpInside" id="lA7-09-0vc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmJ-pX-sGD">
+                                <rect key="frame" x="257" y="343" width="127" height="131"/>
+                                <state key="normal" image="ic_purpleSpaceship"/>
+                                <connections>
+                                    <action selector="chooseSpaceship:" destination="rNo-2K-M3t" eventType="touchUpInside" id="gr1-bA-71V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDf-3N-jW3">
+                                <rect key="frame" x="42" y="343" width="127" height="131"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="127" id="4e0-et-07n"/>
+                                    <constraint firstAttribute="height" constant="131" id="VRA-1I-TCi"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="ic_blackSpaceship"/>
+                                <connections>
+                                    <action selector="chooseSpaceship:" destination="rNo-2K-M3t" eventType="touchUpInside" id="JeI-2G-5ut"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LAh-Q3-vMg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cPM-EN-qQq" firstAttribute="centerX" secondItem="CT7-PB-4o9" secondAttribute="centerX" id="00f-Ah-2vQ"/>
+                            <constraint firstItem="LAh-Q3-vMg" firstAttribute="trailing" secondItem="jmJ-pX-sGD" secondAttribute="trailing" constant="30" id="0Ap-SJ-sEC"/>
+                            <constraint firstItem="fkn-JX-Tv4" firstAttribute="leading" secondItem="tNO-0l-TZs" secondAttribute="trailing" constant="88" id="4zU-zz-Myv"/>
+                            <constraint firstItem="jmJ-pX-sGD" firstAttribute="leading" secondItem="wDf-3N-jW3" secondAttribute="trailing" constant="88" id="JL4-QI-phf"/>
+                            <constraint firstItem="fkn-JX-Tv4" firstAttribute="top" secondItem="tNO-0l-TZs" secondAttribute="top" id="TIN-ak-OWD"/>
+                            <constraint firstItem="fkn-JX-Tv4" firstAttribute="top" secondItem="LAh-Q3-vMg" secondAttribute="top" constant="77" id="UOE-Bu-Lij"/>
+                            <constraint firstItem="LAh-Q3-vMg" firstAttribute="bottom" secondItem="cPM-EN-qQq" secondAttribute="bottom" constant="101" id="Zfy-wC-gEA"/>
+                            <constraint firstItem="fkn-JX-Tv4" firstAttribute="bottom" secondItem="tNO-0l-TZs" secondAttribute="bottom" id="bA6-1z-6HF"/>
+                            <constraint firstItem="LAh-Q3-vMg" firstAttribute="trailing" secondItem="fkn-JX-Tv4" secondAttribute="trailing" constant="26" id="euV-IH-m4z"/>
+                            <constraint firstItem="jmJ-pX-sGD" firstAttribute="top" secondItem="fkn-JX-Tv4" secondAttribute="bottom" constant="90" id="o7o-s9-Rid"/>
+                            <constraint firstItem="cPM-EN-qQq" firstAttribute="top" secondItem="wDf-3N-jW3" secondAttribute="bottom" constant="256" id="qJX-Cd-T2e"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="cPM-EN-qQq" id="148-oa-Mql"/>
@@ -89,9 +108,6 @@
         <image name="ic_redSpaceship" width="130" height="132"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

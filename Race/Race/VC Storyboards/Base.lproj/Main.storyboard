@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-1406" y="-301"/>
         </scene>
-        <!--View Controller-->
+        <!--Race-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ViewController" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="Race" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,36 +32,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cro-3e-qDX">
-                                <rect key="frame" x="133" y="691" width="134" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <action selector="settingsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nlx-PK-ckg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvP-NY-9SR">
-                                <rect key="frame" x="164" y="773" width="70" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Records"/>
-                                <connections>
-                                    <segue destination="sUE-Su-or6" kind="show" id="afB-aD-PwW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rI6-fM-0aX">
-                                <rect key="frame" x="164" y="632" width="70" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rI6-fM-0aX">
+                                <rect key="frame" x="187" y="567" width="40" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iRE-Ak-aGb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvP-NY-9SR">
+                                <rect key="frame" x="178.5" y="638" width="57" height="30"/>
+                                <state key="normal" title="Records"/>
+                                <connections>
+                                    <segue destination="sUE-Su-or6" kind="show" id="afB-aD-PwW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cro-3e-qDX">
+                                <rect key="frame" x="178.5" y="710" width="57" height="30"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <action selector="settingsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nlx-PK-ckg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Space survival" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYj-8r-wow">
+                                <rect key="frame" x="0.0" y="161" width="414" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <constraints>
+                            <constraint firstItem="rI6-fM-0aX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0n7-Kp-Dqo"/>
+                            <constraint firstItem="rI6-fM-0aX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="479" id="30U-wP-knN"/>
+                            <constraint firstItem="TvP-NY-9SR" firstAttribute="top" secondItem="rI6-fM-0aX" secondAttribute="bottom" constant="37" id="Pdn-cd-zbB"/>
+                            <constraint firstItem="TvP-NY-9SR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gDW-BX-MuW"/>
+                            <constraint firstItem="cro-3e-qDX" firstAttribute="top" secondItem="TvP-NY-9SR" secondAttribute="bottom" constant="42" id="h7j-sQ-FoK"/>
+                            <constraint firstItem="cro-3e-qDX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mc6-g8-nbt"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pV0-a2-bcA"/>
+                    <navigationItem key="navigationItem" title="Race" id="pV0-a2-bcA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,14 +87,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N7D-x2-cGQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N7D-x2-cGQ">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Z6d-HK-eYb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="N7D-x2-cGQ" firstAttribute="trailing" secondItem="Z6d-HK-eYb" secondAttribute="trailing" id="REO-kt-Sr9"/>
+                            <constraint firstItem="N7D-x2-cGQ" firstAttribute="top" secondItem="Z6d-HK-eYb" secondAttribute="top" id="RFy-E4-HUA"/>
+                            <constraint firstItem="N7D-x2-cGQ" firstAttribute="leading" secondItem="Z6d-HK-eYb" secondAttribute="leading" id="fa2-J8-b8e"/>
+                            <constraint firstAttribute="bottom" secondItem="N7D-x2-cGQ" secondAttribute="bottom" id="j4C-9F-u6j"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cc5-EZ-Zsc"/>
                     <connections>
@@ -97,6 +114,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

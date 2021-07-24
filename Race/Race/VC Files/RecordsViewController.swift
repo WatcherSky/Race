@@ -65,21 +65,20 @@ class RecordsViewController: UIViewController {
         present(viewController, animated: true, completion: nil)
     }
     func sortedArray(array: [Score]) -> [Score] {
-        let sortedArrayScore = array.sorted { (s1: Score, s2: Score) -> Bool in
+        var sortedArrayScore = array.sorted { (s1: Score, s2: Score) -> Bool in
             return s1.score > s2.score
         }
-        while sortedScore.count > 20 {
-            sortedScore.removeLast()
+        while sortedArrayScore.count > 20 {
+            sortedArrayScore.removeLast()
         }
         return sortedArrayScore
     }
 }
-
 extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sortedScore.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
         cell.textLabel?.text = "\(sortedScore[indexPath.row])"

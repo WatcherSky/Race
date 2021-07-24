@@ -8,11 +8,13 @@ import GameplayKit
 import UIKit
 
 class StartViewController: UIViewController {
+    private var timeInterval = 0.04
+    lazy var firstTimerController = creatingTimers()
+    lazy var secondTimerController = creatingTimers()
     private var spaceshipColor = ["ic_redSpaceship", "ic_blueSpaceship", "ic_blackSpaceship", "ic_purpleSpaceship"]
     private var spaceshipIndex = UserDefaults.standard.integer(forKey: "spaceshipIndex")
     private var intersectionIndicator = false
-    private var heightToDisappearForSpace: CGFloat = 900
-    private var heightToDisappearForStone: CGFloat = 780
+    private var heightToDisappearForStone: CGFloat = 0
     lazy var chosenSpaceship = chooseSpaceship()
     private var score = 0 {
         didSet {
@@ -20,25 +22,31 @@ class StartViewController: UIViewController {
             scoreOutlet.text = " \(NSLocalizedString("score", comment: "")) \(score) "
         }
     }
-    var timerSpace = Timer()
+    var timeIntervalControl = Timer()
+    var secondTimeIntervalControl = Timer()
     var timerStones = Timer()
     private let endGameTap = UITapGestureRecognizer()
     private let date = Date()
     private let dateFormatter = DateFormatter()
     private var dateToString = ""
     @IBOutlet weak var scoreOutlet: UILabel!
-    @IBOutlet weak var upSpaceImage: UIImageView!
-    @IBOutlet weak var thirdSpaceImage: UIImageView!
-    @IBOutlet weak var secondSpaceImage: UIImageView!
     @IBOutlet weak var spaceshipOutlet: UIButton!
     @IBOutlet weak var leftSpaceStone: UIImageView!
-    @IBOutlet weak var midSpaceStone: UIImageView!
     @IBOutlet weak var rightSpaceStone: UIImageView!
     @IBOutlet weak var spaceImage: UIImageView!
-    @IBOutlet weak var fourthSpaceImage: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(leftMoveSwipe))
+        leftSwipe.direction = .left
+        view.addGestureRecognizer(leftSwipe)
+        view.isUserInteractionEnabled = true
+
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(rightMoveSwipe))
+        rightSwipe.direction = .right
+        view.addGestureRecognizer(rightSwipe)
+        view.isUserInteractionEnabled = true
+
         scoreOutlet.text = NSLocalizedString("scoreStart", comment: "")
 
         dateFormatter.dateFormat = "MMM d, HH:mm, ss"
@@ -46,15 +54,16 @@ class StartViewController: UIViewController {
         endGameTap.addTarget(self, action: #selector(endTap))
         endGameTap.isEnabled = false
         view.addGestureRecognizer(endGameTap)
-
         spaceshipOutlet.setImage(chosenSpaceship, for: UIControl.State.normal)
 
-        timerSpace = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(spaceAnimation), userInfo: nil, repeats: true)
-        timerStones = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(stonesAnimation), userInfo: nil, repeats: true)
+        heightToDisappearForStone = view.frame.height
 
+        timeIntervalControl = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(controlTimer), userInfo: nil, repeats: true)
+
+        secondTimeIntervalControl = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(secondControlTimer), userInfo: nil, repeats: true)
     }
-    @IBAction private func leftMoveSwipe(_ sender: UISwipeGestureRecognizer) {
-        if spaceshipOutlet.frame.origin.x == 300 {
+    @objc private func leftMoveSwipe(_ sender: UISwipeGestureRecognizer) {
+        if spaceshipOutlet.frame.origin.x == 290 {
             spaceshipOutlet.frame.origin.x = 150
         } else if spaceshipOutlet.frame.origin.x == 150 {
             spaceshipOutlet.frame.origin.x = 10
@@ -62,26 +71,17 @@ class StartViewController: UIViewController {
             spaceshipOutlet.frame.origin.x = 10
         }
     }
-    @IBAction private func rightMoveSwipe(_ sender: UISwipeGestureRecognizer) {
+    @objc private func rightMoveSwipe(_ sender: UISwipeGestureRecognizer) {
         if spaceshipOutlet.frame.origin.x == 10 {
             spaceshipOutlet.frame.origin.x = 150
         } else if spaceshipOutlet.frame.origin.x == 150 {
-            spaceshipOutlet.frame.origin.x = 300
+            spaceshipOutlet.frame.origin.x = 290
         } else {
-            spaceshipOutlet.frame.origin.x = 300
+            spaceshipOutlet.frame.origin.x = 290
         }
-    }
-    @objc private func spaceAnimation() {
-        movingSpace(space: upSpaceImage)
-        movingSpace(space: spaceImage)
-        movingSpace(space: secondSpaceImage)
-        movingSpace(space: thirdSpaceImage)
-        movingSpace(space: fourthSpaceImage)
     }
     @objc private func stonesAnimation() {
         movingStones(stone: leftSpaceStone)
-        endgame()
-        movingStones(stone: midSpaceStone)
         endgame()
         movingStones(stone: rightSpaceStone)
         endgame()
@@ -95,16 +95,19 @@ class StartViewController: UIViewController {
             return nil
         }
     }
-    func movingSpace(space: UIImageView) {
-        space.frame = CGRect(x: space.frame.origin.x, y: space.frame.origin.y + 1, width: space.frame.size.width, height: space.frame.size.height)
-        if space.frame.origin.y == heightToDisappearForSpace {
-            space.frame.origin.y = 0
-        }
-    }
     func movingStones(stone: UIImageView) {
         stone.frame = CGRect(x: stone.frame.origin.x, y: stone.frame.origin.y + 1, width: stone.frame.size.width, height: stone.frame.size.height)
         if stone.frame.origin.y == heightToDisappearForStone {
             stone.frame.origin.y = 0
+            let setRandom = Int.random(in: 1...3)
+            switch setRandom {
+            case 1:
+                stone.frame.origin.x = 10
+            case 2:
+                stone.frame.origin.x = 150
+            default:
+                stone.frame.origin.x = 290
+            }
             score += 1
         }
         intersectionIndicator = stone.frame.intersects(spaceshipOutlet.frame)
@@ -112,14 +115,13 @@ class StartViewController: UIViewController {
     func endgame() {
         if intersectionIndicator {
             endGameTap.isEnabled = true
-            timerSpace.invalidate()
             timerStones.invalidate()
+            secondTimeIntervalControl.invalidate()
             guard let documentDirectoryPath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
                 return
             }
             var folderPath = documentDirectoryPath
             folderPath.appendPathComponent("Score")
-            print(folderPath)
             let path = folderPath
             try? FileManager.default.createDirectory(at: path, withIntermediateDirectories: false, attributes: nil)
             let result = Score(date: dateToString, score: score)
@@ -132,11 +134,24 @@ class StartViewController: UIViewController {
         let viewController = ViewController.instantiateMainVC()
         present(viewController, animated: true, completion: nil)
     }
-    
-   func decreaseNumber() -> TimeInterval {
-        var number: TimeInterval = 0.01
-        number -= 0.001
-        print(number)
-        return number
+    func creatingTimers() -> Timer {
+        timerStones = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(stonesAnimation), userInfo: nil, repeats: true)
+        return timerStones
+    }
+    @objc func controlTimer() {
+        timeInterval /= 1.05
+        let controller = 1
+        repeat {
+            firstTimerController.invalidate()
+            secondTimerController = creatingTimers()
+        } while controller == 0
+    }
+    @objc func secondControlTimer() {
+        timeInterval /= 1.1
+        let controller = 1
+        repeat {
+            secondTimerController.invalidate()
+            firstTimerController = creatingTimers()
+        } while controller == 0
     }
 }
