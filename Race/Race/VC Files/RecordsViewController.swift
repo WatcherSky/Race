@@ -15,14 +15,25 @@ class RecordsViewController: UIViewController {
     private var deleteValueStore = 0
     private var deleteValueJSON = 0
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
+        setupFileManager()
+    }
+
+    @IBAction private func backButton(_ sender: UIButton) {
+        let viewController = ViewController.instantiateMainVC()
+        present(viewController, animated: true, completion: nil)
+    }
+
+    private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellID")
-
+    }
+    private func setupFileManager() {
         let documentDirectoryPath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
         guard var folderPath = documentDirectoryPath else {
             return
@@ -60,11 +71,7 @@ class RecordsViewController: UIViewController {
         }
         sortedScore = sortedArray(array: scores)
     }
-    @IBAction private func backButton(_ sender: UIButton) {
-        let viewController = ViewController.instantiateMainVC()
-        present(viewController, animated: true, completion: nil)
-    }
-    func sortedArray(array: [Score]) -> [Score] {
+    private func sortedArray(array: [Score]) -> [Score] {
         var sortedArrayScore = array.sorted { (s1: Score, s2: Score) -> Bool in
             return s1.score > s2.score
         }

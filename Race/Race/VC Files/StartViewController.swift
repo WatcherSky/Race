@@ -22,21 +22,54 @@ class StartViewController: UIViewController {
             scoreOutlet.text = " \(NSLocalizedString("score", comment: "")) \(score) "
         }
     }
-    var timeIntervalControl = Timer()
-    var secondTimeIntervalControl = Timer()
-    var timerStones = Timer()
+    private var timeIntervalControl = Timer()
+    private var secondTimeIntervalControl = Timer()
+    private var timerStones = Timer()
     private let endGameTap = UITapGestureRecognizer()
     private let date = Date()
     private let dateFormatter = DateFormatter()
     private var dateToString = ""
-    @IBOutlet weak var scoreOutlet: UILabel!
-    @IBOutlet weak var spaceshipOutlet: UIButton!
-    @IBOutlet weak var leftSpaceStone: UIImageView!
-    @IBOutlet weak var rightSpaceStone: UIImageView!
-    @IBOutlet weak var spaceImage: UIImageView!
+    @IBOutlet private weak var scoreOutlet: UILabel!
+    @IBOutlet private weak var spaceshipOutlet: UIButton!
+    @IBOutlet private weak var leftSpaceStone: UIImageView!
+    @IBOutlet private weak var rightSpaceStone: UIImageView!
+    @IBOutlet private weak var spaceImage: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        scoreOutlet.text = NSLocalizedString("scoreStart", comment: "")
+        spaceshipOutlet.setImage(chosenSpaceship, for: UIControl.State.normal)
+
+        setDisappearingOfStones()
+        setupSwipes()
+        dateFormatterSetup()
+        endGameTapSetup()
+        timerSetups()
+    }
+
+    private func setDisappearingOfStones() {
+        heightToDisappearForStone = view.frame.height
+    }
+
+    private func dateFormatterSetup() {
+        dateFormatter.dateFormat = "MMM d, HH:mm, ss"
+        dateToString = dateFormatter.string(from: date)
+    }
+
+    private func endGameTapSetup() {
+        endGameTap.addTarget(self, action: #selector(endTap))
+        endGameTap.isEnabled = false
+        view.addGestureRecognizer(endGameTap)
+    }
+
+    private func timerSetups() {
+        timeIntervalControl = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(controlTimer), userInfo: nil, repeats: true)
+
+        secondTimeIntervalControl = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(secondControlTimer), userInfo: nil, repeats: true)
+    }
+
+    private func setupSwipes() {
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(leftMoveSwipe))
         leftSwipe.direction = .left
         view.addGestureRecognizer(leftSwipe)
@@ -46,21 +79,6 @@ class StartViewController: UIViewController {
         rightSwipe.direction = .right
         view.addGestureRecognizer(rightSwipe)
         view.isUserInteractionEnabled = true
-
-        scoreOutlet.text = NSLocalizedString("scoreStart", comment: "")
-
-        dateFormatter.dateFormat = "MMM d, HH:mm, ss"
-        dateToString = dateFormatter.string(from: date)
-        endGameTap.addTarget(self, action: #selector(endTap))
-        endGameTap.isEnabled = false
-        view.addGestureRecognizer(endGameTap)
-        spaceshipOutlet.setImage(chosenSpaceship, for: UIControl.State.normal)
-
-        heightToDisappearForStone = view.frame.height
-
-        timeIntervalControl = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(controlTimer), userInfo: nil, repeats: true)
-
-        secondTimeIntervalControl = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(secondControlTimer), userInfo: nil, repeats: true)
     }
     @objc private func leftMoveSwipe(_ sender: UISwipeGestureRecognizer) {
         if spaceshipOutlet.frame.origin.x == 290 {
@@ -87,7 +105,7 @@ class StartViewController: UIViewController {
         endgame()
     }
 
-    func chooseSpaceship() -> UIImage? {
+    private func chooseSpaceship() -> UIImage? {
         let chosenImage = spaceshipColor[spaceshipIndex]
         if let setImage = UIImage(named: chosenImage) {
             return setImage
@@ -95,7 +113,7 @@ class StartViewController: UIViewController {
             return nil
         }
     }
-    func movingStones(stone: UIImageView) {
+    private func movingStones(stone: UIImageView) {
         stone.frame = CGRect(x: stone.frame.origin.x, y: stone.frame.origin.y + 1, width: stone.frame.size.width, height: stone.frame.size.height)
         if stone.frame.origin.y == heightToDisappearForStone {
             stone.frame.origin.y = 0
@@ -112,7 +130,7 @@ class StartViewController: UIViewController {
         }
         intersectionIndicator = stone.frame.intersects(spaceshipOutlet.frame)
     }
-    func endgame() {
+    private func endgame() {
         if intersectionIndicator {
             endGameTap.isEnabled = true
             timerStones.invalidate()
@@ -130,15 +148,15 @@ class StartViewController: UIViewController {
             FileManager.default.createFile(atPath: dataPath.path, contents: data, attributes: nil)
         }
     }
-    @objc func endTap(sender: UITapGestureRecognizer) {
+    @objc private func endTap(sender: UITapGestureRecognizer) {
         let viewController = ViewController.instantiateMainVC()
         present(viewController, animated: true, completion: nil)
     }
-    func creatingTimers() -> Timer {
+    private func creatingTimers() -> Timer {
         timerStones = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(stonesAnimation), userInfo: nil, repeats: true)
         return timerStones
     }
-    @objc func controlTimer() {
+    @objc private func controlTimer() {
         timeInterval /= 1.05
         let controller = 1
         repeat {
@@ -146,7 +164,7 @@ class StartViewController: UIViewController {
             secondTimerController = creatingTimers()
         } while controller == 0
     }
-    @objc func secondControlTimer() {
+    @objc private func secondControlTimer() {
         timeInterval /= 1.1
         let controller = 1
         repeat {
